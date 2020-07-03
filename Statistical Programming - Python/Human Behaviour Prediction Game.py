@@ -19,7 +19,7 @@ def linear_congruence(xi):
     return comp_move, xi_plus_1
 
 #1. Create an opening message
-print("Welcome to Human Behavior Prediction by Prof. Manoel Gadi")
+print("Welcome to Human Behavior Prediction Game inspired by Prof. Manoel Gadi and (partially coded) by Nicolas")
 
 select_difficulty = int(input("Choose the type of game (1: Easy; 2: Difficult): "))
 
@@ -36,17 +36,67 @@ if select_difficulty == 1:
         computer_move,xi = linear_congruence(xi)
         if player_move == computer_move:
             MS = MS + 1
-            print("player = 0 machine = 0 - Machine wins!")
+            print("player = %d machine = %d - Machine wins!" % (player_move, computer_move))
             print("You: %d Computer: %d" % (PS, MS))
         else:
             PS = PS + 1
-            print("player = 0 machine = 0 - Machine wins!")
+            print("player = %d machine = %d - Player wins!" % (player_move, computer_move))
             print("You: %d Computer: %d" % (PS, MS))
             
         print('PLAYER: ' + '*'*PS)
         print('MACHINE: ' + '*'*MS)
+
+    if turn == moves and PS > MS:
+        print("The game has ended, you win!")
+    elif PS == MS:
+        print("The game has ended, it is a draw!")
+    else:
+        print("the game has ended, the machine wins!")
+
+#loop if player selects "difficult" as game setting
+if select_difficulty == 2:
+    for turn in range(moves):
+        #print(turn)
+        player_move = int(input("Choose your move number %s (0 or 1):" % (turn+1)))
+        #define the previous move of the player
+        player_previous_move = (player_move-1)
+        
+        #define computer behavior depening on previous player move
+        computer_move,xi = linear_congruence(xi)
+        if player_previous_move == 0:
+            computer_move,xi = linear_congruence(xi)  
+            #1.Ifthrow10>throw00:thenthecomputerchooses1
+            #2.Ifthrow10<throw00:thenthecomputerchooses0
+            #3.Ifthrow10=throw00:thenthecomputerchoosesrandomly0or1.     
+        elif player_previous_move == 1:
+            computer_move,xi = linear_congruence(xi)  
+            #4.Ifthrow11>throw01:thenthecomputerchooses1
+            #5.Ifthrow11<throw01:thenthecomputerchooses0
+            #6.Ifthrow11=throw01:thenthecomputerchoosesrandomly0or1.
+        else:
+            computer_move,xi = linear_congruence(xi)            
+        
+        if player_move == computer_move:
+            MS = MS + 1
+            print("player = 0 machine = 0 - Machine wins!")
+            print("You: %d Computer: %d" % (PS, MS))
+        else:
+            PS = PS + 1
+            print("player = 0 machine = 0 - Player wins!")
+            print("You: %d Computer: %d" % (PS, MS))
+            
+        print('PLAYER: ' + '*'*PS)
+        print('MACHINE: ' + '*'*MS)
+        
+    if turn == moves and PS > MS:
+        print("The game has ended, you win!")
+    elif PS == MS:
+        print("The game has ended, it is a draw!")
+    else:
+        print("the game has ended, the machine wins!")
             
 # Open:
+#comment your code
 # create overall for loop that only ends when the play decides to quit the game
-# implement difficulty 2
+
                 
