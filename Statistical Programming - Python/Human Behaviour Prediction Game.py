@@ -28,6 +28,11 @@ moves = int(input("Enter the number of moves: "))
 MS = 0
 PS = 0
 xi = 1234
+#throw00 = countofthenumberoftimesthehumanplayerchose0giventhatinthepreviousbidhis/herbidwas0
+#throw01 = countofthenumberoftimesthehumanplayerchose0giveninthebidprevioushis/herbidwas1,
+#throw10 = countofthenumberoftimesthehumanplayerchose1giventhathis/herpreviousbidwas0,
+#throw11 = countofthenumberoftimesthehumanplayerchose1givenhis/herpreviousbidwas1.
+
 
 if select_difficulty == 1:
     for turn in range(moves):
