@@ -1,2 +1,5 @@
-# GMBD_Term2
-Code produced during my 2nd term of my Master degree at HST
+# GMBD
+
+This repository contains code and notebooks created during studying for Master Degree at IE University, HST.
+
+This repo is updated from time to time and I plan to add a detailled overview on all projects and contents in the repo towards my graduation Summer 2021.
